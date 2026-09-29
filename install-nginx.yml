@@ -1,15 +1,11 @@
-- name: Nginx
+- name: Install Node.js
   hosts: app_servers
   become: true
 
   tasks:
-    - name: Install Nginx
+    - name: Install Node.js and npm
       dnf:
-        name: nginx
+        name:
+          - nodejs
+          - npm
         state: present
-
-    - name: Start Nginx
-      service:
-        name: nginx
-        state: started
-        enabled: true
